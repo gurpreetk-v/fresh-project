@@ -1,4 +1,4 @@
-name: Cleanup Stale Branches
+name: Cleanup Git Branches
 
 on:
   #push:
@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  cleanup-stale-branches:
+  cleanup-git-branches:
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@v2
+      #uses: actions/checkout@v2
       run: |
         echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r
         cnt=0
