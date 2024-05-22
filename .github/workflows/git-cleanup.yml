@@ -10,8 +10,8 @@ jobs:
   cleanup-git-branches:
     runs-on: ubuntu-latest
     steps:
-      #uses: actions/checkout@v2
-      run: |
+      uses: actions/checkout@v2
+      script: |
         echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r
         cnt=0
         
@@ -29,8 +29,8 @@ jobs:
                 echo "Last commit to the branch: `git log -1 origin/$branch | head -n 5 | grep Date`"
         		git checkout $branch
                 git checkout test
-        		git branch -d $branch
-        		git push origin --delete $branch
+        		#git branch -d $branch
+        		#git push origin --delete $branch
         		((cnt++))
                 echo ""
           #	else
